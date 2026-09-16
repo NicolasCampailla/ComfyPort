@@ -81,38 +81,50 @@ Verify your execution logic before queuing generations:
 
 ---
 
-## Getting Started
+## Getting Started & Tutorial
 
 ### 1. Server Configuration
-Start your ComfyUI instance with the `--listen` argument to allow network connections:
+Start your ComfyUI instance with the `--listen` argument to allow incoming network connections:
 ```bash
 python main.py --listen
 ```
 *(If using the standalone portable Windows build, you can append `--listen` to your `run_nvidia_gpu.bat` script.)*
 
-### 2. Connecting the App
+### 2. Install ComfyPort (Download or Build)
+You can install the pre-compiled package directly or build from source:
+* **Download APK**: Grab the latest release package (`ComfyPort-v1.1.1.apk`) from the [Releases](https://github.com/NicolasCampailla/ComfyPort/releases) page and install it on your Android device (Android 8.0+).
+* **Build from Source**:
+  ```bash
+  git clone https://github.com/NicolasCampailla/ComfyPort.git
+  cd ComfyPort
+  ./gradlew assembleDebug
+  ./gradlew installDebug
+  ```
+
+### 3. Add New IP Address
 1. Open ComfyPort and navigate to **Settings** -> **Saved Servers**.
-2. Tap **Add Server** and enter your server address:
+2. Tap **Add New IP Address** and enter your server endpoint:
    * **Local Network**: `http://192.168.1.xxx:8188`
-   * **Tailscale (Recommended)**: `http://100.x.y.z:8188`
+   * **Tailscale (Recommended)**: `http://100.x.y.z:8188` (enables secure, direct access outside your home with no router port forwarding)
    * **Cloud GPU Proxy**: `https://<your-pod-id>-8188.proxy.runpod.net`
-3. Tap **Test Connection** to verify reachability.
+3. Tap **Test Connection** to confirm connectivity, then tap the server card to activate it.
 
-### 3. Downloading the App
-Download the latest pre-compiled APK from the [Releases](https://github.com/NicolasCampailla/ComfyPort/releases) page and install it on your Android device (Android 8.0+).
+### 4. Optional: Remote OpenSSH Booting
+If you want to keep your desktop rig powered off or asleep when not generating:
+* Navigate to **Settings** -> **Remote Server (OpenSSH)**.
+* Enter your machine's SSH host (local or Tailscale IP), port 22, and user credentials.
+* Tap the power button on the home screen to boot up ComfyUI remotely, with live startup logs streamed directly into the in-app terminal viewer.
 
-### 4. Building from Source
-```bash
-# Clone the repository
-git clone https://github.com/NicolasCampailla/ComfyPort.git
-cd ComfyPort
+### 5. Import Your Workflows (Local Files & Machine History)
+ComfyPort lets you bring workflows onto mobile without manual file conversion:
+* **Import from Machine History**: In the **Workflow Manager**, tap **Import Last Run** (or browse recent desktop runs via the history dialog). ComfyPort connects directly to your server's `/history` endpoint and pulls in the workflow you just ran on your desktop.
+* **Import Local JSON**: Tap **Import Workflow (.json)** to load any exported ComfyUI LiteGraph workflow file stored on your phone.
 
-# Build the debug APK
-./gradlew assembleDebug
-
-# Install to a connected device or emulator
-./gradlew installDebug
-```
+### 6. Preview the Graph, Map Inputs, and Generate
+Once your workflow is loaded, customize how you interact with it:
+* **Preview the 2D Graph Canvas**: Tap the workflow preview icon to open the full interactive 2D node inspector. Pan, zoom, and inspect every node, connection wire (Latent, VAE, CLIP, Image, Model), and parameter.
+* **Map Modular Inputs**: ComfyPort automatically maps standard prompts, dimensions, and sampler settings on first load. You may remap those manually anytime. To expose custom parameters (such as LoRA weights, denoise sliders, etc...), tap any node and select **input** from the bottom bar. You can then modify those values in the prompt tab.
+* **Generate**: Enter your prompt, tweak your mapped controls, and tap **Generate** to watch live step progress and intermediate preview images stream in real time.
 
 ---
 
@@ -131,7 +143,7 @@ cd ComfyPort
 
 This project began from a practical desire: to generate images on a mobile device without having to constantly transfer files back and forth with a desktop computer, using an interface that feels fast, natural, and comfortable on a touch screen. Over time, it evolved into a full-featured client capable of handling complex production workflows, which is why I decided to open-source it for the community.
 
-In the spirit of full transparency, ComfyPort was built in pair-programming collaboration with Antigravity, an agentic AI coding assistant developed by Google DeepMind. Together, we designed the architecture from scratch, implemented client-side LiteGraph execution, and optimized the app for modern Android hardware.
+In the spirit of full transparency, ComfyPort was built in pair-programming collaboration with Antigravity, an agentic AI coding assistant developed by Google DeepMind.
 
 ---
 
@@ -141,7 +153,7 @@ If ComfyPort improves your workflow or makes managing your generative AI pipelin
 
 [![Support on Ko-fi](https://img.shields.io/badge/Support-Ko--fi-ff5e5b.svg?logo=kofi&logoColor=white)](https://ko-fi.com/comfyport)
 
-All donations directly support me as an independent developer working my way through college.
+All donations directly support me as a student working my way through college.
 
 ---
 
