@@ -1861,11 +1861,16 @@ fun PromptScreen(
         bottomBar = {
             Surface(
                 color = Color.Black,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 10.dp)
+                modifier = Modifier.fillMaxWidth()
             ) {
-                generateButton()
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .navigationBarsPadding()
+                        .padding(horizontal = 16.dp, vertical = 10.dp)
+                ) {
+                    generateButton()
+                }
             }
         },
         containerColor = Color.Black

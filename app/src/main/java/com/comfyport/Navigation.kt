@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -362,6 +363,7 @@ fun MainNavigation(viewModel: MainViewModel = viewModel()) {
                 onClick = { showBottomSheet = true },
                 modifier = androidx.compose.ui.Modifier
                     .align(androidx.compose.ui.Alignment.BottomEnd)
+                    .navigationBarsPadding()
                     .padding(16.dp)
             )
         }
