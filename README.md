@@ -20,18 +20,18 @@ ComfyPort is designed to handle arbitrary real-world graphs rather than restrict
 
 ### 1. One-Tap Desktop Run Importer
 Directly queries your server's `/history` endpoint:
-* Tap **Import Last Run** in the Workflow Manager.
-* Instantly loads the exact workflow (Flux, SDXL, Inpainting, ControlNet, or custom pipelines) recently executed on your desktop directly into your mobile session.
+* Tap **Browse Machine Workflow History** in the Workflow Manager and choose a recently run workflow.
+* Instantly loads the exact configuration (Flux, SDXL, Inpainting, ControlNet, or custom pipelines) recently executed on your desktop directly into your mobile session.
 
 ### 2. Modular Node Mapping
 Take control over which parts of your graph appear on your mobile dashboard:
-* **Automatic Detection**: Positive and negative text prompts, latent dimensions, seed, step count, and sampler configurations are automatically detected and surfaced as clean mobile input fields.
-* **Custom Parameter Mapping**: Tap any node in your graph to expose its specific widgets. Adjust CFG scales, LoRA weights, denoise levels, checkpoint models, or custom node sliders without navigating visual node spaghetti.
+* **Automatic Detection**: Positive and negative text prompts, latent dimensions, seed, image and mask loaders are automatically detected and surfaced as clean mobile input fields.
+* **Custom Parameter Mapping**: Tap any node in your graph and set it as an input to modify its parameters directly from the main screen. Adjust CFG scales, LoRA weights, denoise levels and custom node sliders without navigating visual node spaghetti.
 
 ### 3. Interactive 2D Graph Canvas
 Verify your execution logic before queuing generations:
 * Open the **2D Graph Inspector** for a comprehensive visual canvas.
-* Pan, pinch-to-zoom, and inspect every node, connection wire (Latent, VAE, CLIP, Image, Model), and parameter directly on your phone or tablet.
+* Pan, pinch-to-zoom, and inspect every node, connection wire (Latent, VAE, CLIP, Image, Model), and parameter directly on your device.
 
 ---
 
